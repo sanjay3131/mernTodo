@@ -11,7 +11,12 @@ dotenv.config();
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+app.use(
+  cors({
+    origin: "http://localhost:5173", // your local frontend
+    credentials: true, // allow cookies
+  })
+);
 app.use(express.json());
 app.get("/", (req, res) => {
   res.status(200).send("<h1>hello</h1>");

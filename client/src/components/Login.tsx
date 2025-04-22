@@ -28,6 +28,8 @@ const Login = ({
       console.log("response : ", respose);
 
       if (respose.status == 200) {
+        localStorage.setItem("token", respose.data.token);
+
         navigate("/userPage");
       }
     } catch (error) {
