@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "http://localhost:5173", // your local frontend
+    origin: "https://mern-todo-eta-henna.vercel.app/", // your local frontend
     credentials: true, // allow cookies
   })
 );
