@@ -9,7 +9,7 @@ export const generateToken = (id, res) => {
       httpOnly: true,
       maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
       secure: process.env.NODE_ENV === "production", // Use secure cookies in production
-      sameSite: "none", // Prevent CSRF attacks
+      sameSite: process.env.NODE_ENV === "production" ? "None" : "Strict", // "None" for cross-origin cookies in production
     });
   } catch (error) {
     console.error(`Token generation error: ${error.message}`);
