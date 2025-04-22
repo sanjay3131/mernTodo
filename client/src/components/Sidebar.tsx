@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { IoCloseSharp } from "react-icons/io5";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { BoxReveal } from "./magicui/box-reveal";
 import { MdOutlineLogout } from "react-icons/md";
 
 import noAvathar from "../assets/noAvather.webp";
@@ -72,9 +71,7 @@ const Sidebar = ({
 
           {/* User name */}
           {open ? (
-            <BoxReveal boxColor="#FFA725">
-              <h1 className="mt-5 text-2xl uppercase">{user.username}</h1>
-            </BoxReveal>
+            <h1 className="mt-5 text-2xl uppercase">{user.username}</h1>
           ) : (
             ""
           )}
@@ -87,16 +84,14 @@ const Sidebar = ({
           >
             {user.todos?.length ? (
               user.todos.map((todo) => (
-                <BoxReveal boxColor="#FFA725" key={todo._id}>
-                  <div
-                    onClick={() => setActiveTodo(todo._id)}
-                    className={`text-white font-bold w-full py-2 px-3 bg-green-500/25 hover:bg-green-500/50 cursor-pointer rounded-lg ${
-                      activeTodo === todo._id ? "bg-green-500/50" : ""
-                    }`}
-                  >
-                    {todo.title}
-                  </div>
-                </BoxReveal>
+                <div
+                  onClick={() => setActiveTodo(todo._id)}
+                  className={`text-white font-bold w-full py-2 px-3 bg-green-500/25 hover:bg-green-500/50 cursor-pointer rounded-lg ${
+                    activeTodo === todo._id ? "bg-green-500/50" : ""
+                  }`}
+                >
+                  {todo.title}
+                </div>
               ))
             ) : (
               <p className="text-gray-400">No todos available</p>
